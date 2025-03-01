@@ -9,16 +9,16 @@ export default function MascotAnimation({ weather }: MascotAnimationProps) {
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    if (!weather) return; 
+    if (!weather) return; // Remove código desnecessário
 
-    let animationPath = "/animations/cloud.json"; 
+    let animationPath = "/animations/cloud.json"; // Default: cloudy animation
 
     const lowerWeather = weather.toLowerCase();
 
     if (lowerWeather.includes("sun") || lowerWeather.includes("no rain")) {
-      animationPath = "/animations/sunny.json"; 
+      animationPath = "/animations/sunny.json"; // Show sun animation
     } else if (lowerWeather.includes("rain")) {
-      animationPath = "/animations/rain.json"; 
+      animationPath = "/animations/rain.json"; // Show rain animation
     }
 
     fetch(animationPath)
