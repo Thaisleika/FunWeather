@@ -1,6 +1,7 @@
 import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
 import axios from "axios";
 import { useWeatherStore } from "../../store/weatherStore";
+import MascotAnimation from "../components/MascotAnimation";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -9,6 +10,7 @@ export default function Home() {
   const fetchWeather = async () => {
     if (!city) return;
     const apiKey = process.env.NEXT_PUBLIC_VISUALCROSSING_API_KEY;
+    console.log("API key:", apiKey);
     try {
       const res = await axios.get(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`
@@ -21,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-blue-200">
-      <h1 className="text-3xl font-bold">🌤️ WeatherFun</h1>
+      <h1 className="text-3xl font-bold">🌤️ FunWeather</h1>
       <div className="mt-4">
         <input
           type="text"
@@ -39,13 +41,14 @@ export default function Home() {
       </div>
 
       {weather && (
-        <div className="mt-6 p-4 bg-white rounded shadow-md">
+        <div className="mt-6 p-4 bg-white rounded shadow-md flex flex-col items-center">
           <h2 className="text-2xl font-bold">{weather.address}</h2>
+          <MascotAnimation weather={weather.description.toLowerCase()} />
           <p>{weather.description}</p>
           <p className="text-xl">🌡 {weather.currentConditions.temp}°C</p>
           <button
             onClick={() => addFavorite(weather.address)}
-            className="mt-2 p-2 bg-yellow-500 text-white rounded"
+            className="mt-6 p-6 bg-yellow-500 text-white rounded"
           >
             ⭐ Add to Favorites
           </button>
