@@ -1,6 +1,6 @@
 # WeatherFun 🌤️
 
-**WeatherFun** is a fun and interactive weather forecast application built using **Next.js** and **Tailwind CSS**. It fetches real-time weather data from **OpenWeatherMap API** and presents it with delightful mascots and animations that react to the current weather. Users can save their favorite cities for quick access.
+**WeatherFun** is a fun and interactive weather forecast application built using **Next.js** and **Tailwind CSS**. It fetches real-time weather data from **VisualCrossing API** and presents it with animations that react to the current weather. Users can save their favorite cities for quick access.
 
 ## 🎯 Features
 - **🌎 Weather Search:** Find the weather for any city worldwide.
@@ -16,7 +16,7 @@
   - 🎨 Tailwind CSS
   - 📦 Zustand (State Management)
 - **Backend:**
-  - 🌍 OpenWeatherMap API
+  - 🌍 VisualCrossing API
   - 🛠️ Next.js API Routes
 - **Database:**
   - 🔥 Firebase / 🗄️ SQLite
@@ -43,22 +43,14 @@ cd weatherfun
 npm install
 ```
 
-4️⃣ Set up OpenWeatherMap API
-Sign up on OpenWeatherMap and get your API key.
+4️⃣ Set up visualcrossing API
+Sign up on Visual Crossing and get your API key.
 Create a .env.local file and add:
 ```bash
 NEXT_PUBLIC_OPENWEATHERMAP_API_KEY=your_api_key_here
 ```
 
-5️⃣ Set up Firebase (Optional)
-If using Firebase, configure it in .env.local:
-```bash
-NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
-```
-
-6️⃣ Run the Application
+5️⃣ Run the Application
 ```bash
 npm run dev
 Open: http://localhost:3000
